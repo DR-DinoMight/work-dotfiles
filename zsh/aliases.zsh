@@ -48,6 +48,7 @@ alias pmake='php artisan make'
 alias pmigrate= 'php artisan migrate'
 alias cinstall= 'composer install'
 alias cdump='composer dump-autoload'
+alias larnew='composer create-project laravel/laravel'
 
 
 
