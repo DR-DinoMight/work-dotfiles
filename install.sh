@@ -20,3 +20,4 @@ function link_if_missing() {
 link_if_missing $PWD/bin                    $HOME/bin
 link_if_missing $PWD/zsh                    $HOME/.zsh
 link_if_missing $PWD/zshrc                  $HOME/.zshrc
+

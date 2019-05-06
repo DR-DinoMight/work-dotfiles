@@ -44,8 +44,8 @@ alias gaa='git add -A'
 
 # Artisan
 alias artisan='php artisan'
-alias pmake='php artisan make'
-alias pmigrate= 'php artisan migrate'
+alias pmigrate= 'artisan migrate'
+alias pms='php artisan migrate:refresh --seed'
 alias cinstall= 'composer install'
 alias cdump='composer dump-autoload'
 alias larnew='composer create-project laravel/laravel'
