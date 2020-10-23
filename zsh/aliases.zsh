@@ -51,6 +51,6 @@ alias pms='php artisan migrate:refresh --seed'
 alias cinstall= 'composer install'
 alias cdump='composer dump-autoload'
 alias larnew='composer create-project laravel/laravel'
-alias snp='npx spotify-play-now --id=8f6aadaf52714de28ac1396dc966cbd3 --secret=71087624fcaa42edb6f5bb27406e464f --out=/Users/matthewdeloughry/spotify.txt'
+
 
 
