@@ -37,15 +37,45 @@ function precmd {
 # Change user/host color if root
 if [ $UID -eq 0 ]; then usercolor="red"; else usercolor="green"; fi
 
-# Finally, set the prompt
+# # Finally, set the prompt
+# #local user_and_host="%{$fg_bold[$usercolor]%}%n@%m%{$reset_color%}"
+# local user_and_host=""
+# local the_date="%{$fg_bold[green]%}%D{%H:%M:%S}%{$reset_color%}"
+# local last_command_status="%(?..%{$fg_bold[red]%}%? %{$reset_color%})"
+# local start_of_input="%{$fg_bold[white]%}$%{$reset_color%}"
+# PROMPT='$the_date %{$fg_bold[blue]%}%$PR_PWDLEN<...<$PWD%<<%{$reset_color%} $last_command_status%{$fg_bold[white]%}${(e)PR_FILLBAR}%{$reset_color%}
+# $start_of_input '
+
+# # Git prompt, displayed at right (RPROMPT)
+# # See: https://github.com/olivierverdier/zsh-git-prompt
+# RPROMPT='$(git_super_status)'
+
+#
+# Random logic
+#
+
+EMOJIS=(🍣 🍺 👾 🚀)
+
+
+SEL_EMOJI=${EMOJIS[RANDOM % ${#EMOJIS[@]} - 1 ]}
+# -------------------------------
+# general
+# -------------------------------
 #local user_and_host="%{$fg_bold[$usercolor]%}%n@%m%{$reset_color%}"
 local user_and_host=""
 local the_date="%{$fg_bold[green]%}%D{%H:%M:%S}%{$reset_color%}"
 local last_command_status="%(?..%{$fg_bold[red]%}%? %{$reset_color%})"
-local start_of_input="%{$fg_bold[white]%}$%{$reset_color%}"
-PROMPT='$the_date %{$fg_bold[blue]%}%$PR_PWDLEN<...<$PWD%<<%{$reset_color%} $last_command_status%{$fg_bold[white]%}${(e)PR_FILLBAR}%{$reset_color%}
-$start_of_input '
+local start_of_input="%{$fg_bold[white]%}$SEL_EMOJI%{$reset_color%}"
+local pwdrel="%~"
 
-# Git prompt, displayed at right (RPROMPT)
-# See: https://github.com/olivierverdier/zsh-git-prompt
+NEWLINE=$'\n'
+PROMPT='$the_date %{$fg_bold[blue]%}%$PR_PWDLEN<...<$pwdrel%<<%{$reset_color%} $last_command_status%{$fg_bold[white]%}$NEWLINE%{$reset_color%}$'\n'$start_of_input '
+
+# -------------------------------
+# git
+# -------------------------------
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}[%{$fg[cyan]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[green]%}]⛔%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}✅]"
 RPROMPT='$(git_super_status)'

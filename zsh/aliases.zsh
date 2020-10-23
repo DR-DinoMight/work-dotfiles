@@ -11,6 +11,8 @@ weather () {
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 export PATH="/usr/local/opt/php@7.1/bin:$PATH"
 export PATH="/usr/local/opt/php@7.1/sbin:$PATH"
+export PATH="$HOME/Library/Python/2.7/bin:$PATH"
+export PATH="$HOME/Development/flutter/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -49,6 +51,6 @@ alias pms='php artisan migrate:refresh --seed'
 alias cinstall= 'composer install'
 alias cdump='composer dump-autoload'
 alias larnew='composer create-project laravel/laravel'
-
+alias snp='npx spotify-play-now --id=8f6aadaf52714de28ac1396dc966cbd3 --secret=71087624fcaa42edb6f5bb27406e464f --out=/Users/matthewdeloughry/spotify.txt'
 
 
