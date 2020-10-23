@@ -43,6 +43,8 @@ alias  gs='git status'
 alias  gl='git l'
 alias  gp='git pull'
 alias gaa='git add -A'
+alias gundo="git reset HEAD~;"
+
 
 # Artisan
 alias artisan='php artisan'
