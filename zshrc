@@ -27,6 +27,9 @@ source ~/.zsh/aliases.zsh
 source ~/.zsh/bindkey.zsh
 source ~/.zsh/prompt.zsh
 
+ZSH_THEME=cobalt2
+
+
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
 fi
@@ -35,3 +38,24 @@ if [ -f /usr/bin/screenfetch ]; then screenfetch; fi
 
 # disable flow control
 stty -ixon
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/matt/.nvm/versions/node/v6.7.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/matt/.nvm/versions/node/v6.7.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/matt/.nvm/versions/node/v6.7.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/matt/.nvm/versions/node/v6.7.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /Users/matt/.nvm/versions/node/v6.7.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/matt/.nvm/versions/node/v6.7.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+function iterm2_print_user_vars() {
+  iterm2_set_user_var phpVersion $(php -v | awk '/^PHP/ { print $2 }')
+  iterm2_set_user_var rubyVersion $(ruby -v | awk '{ print $2 }')
+  iterm2_set_user_var nodeVersion $(node -v)
+}
+
+source ~/.deployer_completion
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn

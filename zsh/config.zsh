@@ -114,3 +114,27 @@ source ~/.zsh/rupa-z/z.sh
 
 # Create directory and move into
 mcd() { [ -n "$1" ] && mkdir -p "$1" && cd "$1"}
+
+# THEME
+ZSH_THEME='simple'
+
+if [[ "$(uname -s)" == "Darwin" ]]; then
+    sith() {
+        val=$(defaults read -g AppleInterfaceStyle 2>/dev/null)
+        if [[ $val == "Dark" ]]; then
+            i
+        fi
+    }
+
+    i() {
+        if [[ $ITERM_PROFILE == "Terminal" ]]; then
+            echo -ne "\033]50;SetProfile=Dark\a"
+            export ITERM_PROFILE="Dark"
+        else
+            echo -ne "\033]50;SetProfile=Terminal\a"
+            export ITERM_PROFILE="Terminal"
+        fi
+    }
+
+    sith
+fi
