@@ -1,4 +1,6 @@
 # zgen
+ZSH_DISABLE_COMPFIX=true
+autoload -U +X compinit && compinit
 
 source "${HOME}/.zsh/zgen/zgen.zsh"
 if ! zgen saved; then
@@ -10,7 +12,6 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/sudo
   zgen oh-my-zsh plugins/httpie
   zgen oh-my-zsh plugins/command-not-found
-  zgen oh-my-zsh plugins/osx
   zgen oh-my-zsh plugins/yarn
   zgen load zsh-users/zsh-completions src
   zgen load olivierverdier/zsh-git-prompt
@@ -57,5 +58,12 @@ function iterm2_print_user_vars() {
 }
 
 source ~/.deployer_completion
-export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
+export PATH="/usr/local/opt/qt/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+
+>>>>>>> 48299777f219fc3ccb7f8fbddd48b5203f7ca35d

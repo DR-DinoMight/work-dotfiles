@@ -12,6 +12,7 @@ export PATH="$HOME/.composer/vendor/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export PATH="/Users/matt/Library/Python/3.7/bin:$PATH"
+export PATH="$HOME/Development/flutter/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -52,5 +53,3 @@ alias cdump='composer dump-autoload'
 alias larnew='composer create-project laravel/laravel'
 alias stan='./vendor/bin/phpstan analyse --memory-limit=2G'
 alias ptest='./vendor/bin/phpunit'
-
-
