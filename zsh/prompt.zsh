@@ -63,19 +63,30 @@ SEL_EMOJI=${EMOJIS[RANDOM % ${#EMOJIS[@]} - 1 ]}
 # -------------------------------
 #local user_and_host="%{$fg_bold[$usercolor]%}%n@%m%{$reset_color%}"
 local user_and_host=""
-local the_date="%{$fg_bold[green]%}%D{%H:%M:%S}%{$reset_color%}"
+local the_date="%{$fg_bold[yellow]%}%D{%H:%M:%S}%{$reset_color%}"
 local last_command_status="%(?..%{$fg_bold[red]%}%? %{$reset_color%})"
 local start_of_input="%{$fg_bold[white]%}$SEL_EMOJI%{$reset_color%}"
-local pwdrel="%~"
+local pwdrel="%1d"
 
 NEWLINE=$'\n'
-PROMPT='$the_date %{$fg_bold[blue]%}%$PR_PWDLEN<...<$pwdrel%<<%{$reset_color%} $last_command_status%{$fg_bold[white]%}$NEWLINE%{$reset_color%}$'\n'$start_of_input '
-
 # -------------------------------
 # git
 # -------------------------------
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}[%{$fg[cyan]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[green]%}]⛔%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}✅]"
-RPROMPT='$(git_super_status)'
+
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[green]%}[%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg_bold[green]%}]%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_SEPARATOR="|"
+ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg_bold[magenta]%}"
+ZSH_THEME_GIT_PROMPT_STAGED="%{$fg[red]%}%{●%G%}"
+ZSH_THEME_GIT_PROMPT_CONFLICTS="%{$fg[red]%}%{⛔%G%}"
+ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg[blue]%}%{✚%G%}"
+ZSH_THEME_GIT_PROMPT_BEHIND="%{%{$fg_bold[yellow]%}↓%G%}"
+ZSH_THEME_GIT_PROMPT_AHEAD="%{$fg_bold[green]%}%{↑%G%}"
+ZSH_THEME_GIT_PROMPT_UNTRACKED="%{…%G%}"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}%{✅%G%}"
+
+
+GIT_STATUS=''
+PROMPT='$the_date %{$fg_bold[blue]%}%$PR_PWDLEN<...<$pwdrel%<<%{$reset_color%} $last_command_status%{$fg_bold[white]%}$(git_super_status)$NEWLINE%{$reset_color%}$'\n'$start_of_input '
+
+

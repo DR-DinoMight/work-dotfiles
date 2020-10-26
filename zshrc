@@ -65,5 +65,3 @@ source ~/.deployer_completion
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
 export PATH="/usr/local/opt/qt/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
-
->>>>>>> 48299777f219fc3ccb7f8fbddd48b5203f7ca35d
